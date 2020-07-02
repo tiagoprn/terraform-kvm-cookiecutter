@@ -3,15 +3,15 @@ provider "libvirt" {
   uri = "qemu:///system"
 }
 
-resource "libvirt_pool" "ubuntu" {
-  name = "ubuntu"
+resource "libvirt_pool" "{{ cookiecutter.vm_name }}" {
+  name = "{{ cookiecutter.vm_name }}"
   type = "dir"
-  path = "/storage/kvm/storage_pools/ubuntu"
+  path = "{{ cookiecutter.storage_pool }}/{{ cookiecutter.vm_name }}"
 }
 
-resource "libvirt_volume" "ubuntu-qcow2" {
-  name   = "ubuntu-qcow2"
-  pool   = libvirt_pool.ubuntu.name
+resource "libvirt_volume" "{{ cookiecutter.vm_name }}-qcow2" {
+  name   = "{{ cookiecutter.vm_name }}-qcow2"
+  pool   = libvirt_pool.{{ cookiecutter.vm_name }}.name
   source = "{{ cookiecutter.volume_source }}"
   format = "qcow2"
 }
@@ -32,13 +32,13 @@ resource "libvirt_cloudinit_disk" "commoninit" {
   name           = "commoninit.iso"
   user_data      = data.template_file.user_data.rendered
   # network_config = data.template_file.network_config.rendered
-  pool           = libvirt_pool.ubuntu.name
+  pool           = libvirt_pool.{{ cookiecutter.vm_name }}.name
 }
 
 # Create the machine
-resource "libvirt_domain" "domain-ubuntu" {
-  name   = "ubuntu-terraform"
-  memory = "{{ cookiecutter.memory }}"
+resource "libvirt_domain" "domain-{{ cookiecutter.vm_name }}" {
+  name   = "{{ cookiecutter.vm_name }}-terraform"
+  memory = {{ cookiecutter.memory }}
   vcpu   = {{ cookiecutter.vcpu }}
 
   cloudinit = libvirt_cloudinit_disk.commoninit.id
@@ -63,7 +63,7 @@ resource "libvirt_domain" "domain-ubuntu" {
   }
 
   disk {
-    volume_id = libvirt_volume.ubuntu-qcow2.id
+    volume_id = libvirt_volume.{{ cookiecutter.vm_name }}-qcow2.id
   }
 
   graphics {
