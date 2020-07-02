@@ -9,7 +9,6 @@ resource "libvirt_pool" "ubuntu" {
   path = "/storage/kvm/storage_pools/ubuntu"
 }
 
-# We fetch the latest ubuntu release image from their mirrors
 resource "libvirt_volume" "ubuntu-qcow2" {
   name   = "ubuntu-qcow2"
   pool   = libvirt_pool.ubuntu.name
