@@ -39,8 +39,8 @@ resource "libvirt_cloudinit_disk" "commoninit" {
 # Create the machine
 resource "libvirt_domain" "domain-ubuntu" {
   name   = "ubuntu-terraform"
-  memory = "{{ memory }}"
-  vcpu   = {{ vcpu }}
+  memory = "{{ cookiecutter.memory }}"
+  vcpu   = {{ cookiecutter.vcpu }}
 
   cloudinit = libvirt_cloudinit_disk.commoninit.id
 
