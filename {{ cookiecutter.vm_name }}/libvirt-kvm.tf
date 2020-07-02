@@ -13,7 +13,7 @@ resource "libvirt_pool" "ubuntu" {
 resource "libvirt_volume" "ubuntu-qcow2" {
   name   = "ubuntu-qcow2"
   pool   = libvirt_pool.ubuntu.name
-  source = "https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img"
+  source = "{{ cookiecutter.volume_source }}"
   format = "qcow2"
 }
 
@@ -48,7 +48,7 @@ resource "libvirt_domain" "domain-ubuntu" {
     network_name = "default"
   }
 
-  # IMPORTANT: this is a known bug on cloud images, since they expect a console
+  # IMPORTANT: this is a known bug on ubuntu cloud images, since they expect a console
   # we need to pass it
   # https://bugs.launchpad.net/cloud-images/+bug/1573095
   console {
