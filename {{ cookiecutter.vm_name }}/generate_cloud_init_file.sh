@@ -30,9 +30,10 @@ cat > $USER_DATA << _EOF_
 #cloud-config
 
 # Hostname management
+manage_etc_hosts: False
 preserve_hostname: False
 hostname: $1
-fqdn: $1.vbox.local
+fqdn: $1.kvm.local
 
 # Users
 users:
@@ -49,6 +50,10 @@ bootcmd:
 # Remove cloud-init when finished with it
 # runcmd:
 #   - [ apt, remove, cloud-init, -y ]
+
+# Add the vm name to the hosts file, so it resolves locally
+runcmd:
+  - [sudo, sed, -i, 's/127\.0\.0\.1 localhost/127\.0\.0\.1 localhost {{ cookiecutter.vm_name }}/g', /etc/hosts]
 
 # Configure where output will go
 output:
