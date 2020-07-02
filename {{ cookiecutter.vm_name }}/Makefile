@@ -16,3 +16,6 @@ destroy:  ## Destroy the VM and its associated resources on KVM
 
 status:  ## List the VM and its associated resources on KVM
 	terraform refresh && terraform show
+
+ip:  ## Get the VM IP
+	@terraform show | grep 192 | tr '"' ' ' | tr ',' ' ' | tr -s ' '

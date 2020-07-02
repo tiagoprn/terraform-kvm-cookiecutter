@@ -45,6 +45,7 @@ resource "libvirt_domain" "domain-{{ cookiecutter.vm_name }}" {
 
   network_interface {
     network_name = "default"
+    wait_for_lease = true
   }
 
   # IMPORTANT: this is a known bug on ubuntu cloud images, since they expect a console
