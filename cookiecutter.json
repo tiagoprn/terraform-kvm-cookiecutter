@@ -1,5 +1,4 @@
 {
-    "project_slug": "tiagoprn_flask_project",
-    "project_name": "tiagoprn's flask project",
-    "description": "A template for simple flask projects."
+    "memory": 1024,
+    "vcpu": 1
 }
