@@ -1,5 +1,5 @@
 {
-    "vm-name": "ubuntu",
+    "vm_name": "ubuntu",
     "memory": 1024,
     "vcpu": 1
 }
