@@ -10,7 +10,7 @@ PUBKEY=${HOME}/.ssh/id_rsa.pub
 if [ ! -f "${PUBKEY}" ]
 then
     # Check for existence of a pubkey, or else exit with message
-    echo "[$(date +%r)]----> [ERROR] Please generate an SSH keypair using 'ssh-keygen -t rsa'. This key will be authorized to login as the CentOS 7 centos cloud image user."
+    echo "[$(date +%r)]----> [ERROR] Please generate an SSH keypair using 'ssh-keygen -t rsa'. This key will be authorized to login as the cloud image user."
     exit 3
 else
     # Place contents of $PUBKEY into $KEY
@@ -36,7 +36,7 @@ fqdn: $1.vbox.local
 
 # Users
 users:
-    - name: ubuntu
+    - name: {{ cookiecutter.vm_sudo_user_name }}
       groups: ['${SUDOGROUP}']
       shell: /bin/bash
       sudo: ALL=(ALL) NOPASSWD:ALL
@@ -47,8 +47,8 @@ bootcmd:
   - echo 'My ip addresses are '$(hostname --ip-address)
 
 # Remove cloud-init when finished with it
-runcmd:
-  - [ apt, remove, cloud-init, -y ]
+# runcmd:
+#   - [ apt, remove, cloud-init, -y ]
 
 # Configure where output will go
 output:
