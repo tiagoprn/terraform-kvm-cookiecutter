@@ -1,3 +1,8 @@
+- Create a VM with the default parameters, and check if I can create a file
+  with e.g. 5GB using dd on it. If not, change the disk file size of the
+images according to this link (see the `size` argument there):
+https://github.com/dmacvicar/terraform-provider-libvirt/blob/master/website/docs/r/volume.html.markdown#argument-reference
+
 - Test with other volume sources (images):
 IMPORTANT: Put on the README.md file the web location to the images that will be tested below
 * ubuntu18
@@ -11,4 +16,5 @@ IMPORTANT: Put on the README.md file the web location to the images that will be
   image. If there is not an image for it, install ubuntu20 server and then
 install the package ubuntu-desktop ;)
 
-
+- Adicionar no `cookiecutter.json` uma opção para definir uma rede customizada:
+  https://github.com/dmacvicar/terraform-provider-libvirt/blob/master/website/docs/r/network.markdown
