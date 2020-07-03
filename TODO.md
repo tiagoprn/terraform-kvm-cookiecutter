@@ -1,11 +1,3 @@
-- Borrow configuration from this `libvirt.tf`: https://titosoft.github.io/kvm/terraform-and-kvm/ (the custom network and disk part I mention below):
-    - Add to `cookiecutter.json` a variable to define a custom network:
-      https://github.com/dmacvicar/terraform-provider-libvirt/blob/master/website/docs/r/network.markdown
-    - Create a VM with the default parameters, and check if I can create a file
-      with e.g. 5GB using dd on it. If not, change the disk file size of the
-images according to this link (see the `size` argument there):
-https://github.com/dmacvicar/terraform-provider-libvirt/blob/master/website/docs/r/volume.html.markdown#argument-reference
-
 - Test with other volume sources (images):
 IMPORTANT: Put on the README.md file the web location to the images that will be tested below
     * ubuntu18

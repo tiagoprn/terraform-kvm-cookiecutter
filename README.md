@@ -8,8 +8,8 @@ specified and run:
 
 Terraform will then provision the vm on kvm through libvirt.
 
-After finished, run `make ip` to get the vm IP address. See the other available
-commands typing `make`.
+After finished, run `make ssh` to ssh into the instance. You can see the other
+available commands typing `make`.
 
 ### ONLINE IMAGES YOU CAN USE TO EXPERIMENT WITH THIS COOKIECUTTER:
 
