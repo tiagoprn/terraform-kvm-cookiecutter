@@ -1,4 +1,4 @@
-- Test the graphical environment with a spice client and the ubuntu20 VM:
+- Test the graphical environment with virt-manager and the ubuntu20 VM:
     * start the vm, ssh into it with `make ssh` and install the package ubuntu-desktop ;)
     * systemctl enable gdm/lightdm
     * stop the VM
