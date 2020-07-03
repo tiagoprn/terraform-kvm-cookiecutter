@@ -2,7 +2,7 @@
     "vm_name": "ubuntu",
     "memory": 1024,
     "vcpu": 1,
-    "volume_source": "https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img",
+    "volume_source": "https://cloud-images.ubuntu.com/releases/bionic/release/ubuntu-18.04-server-cloudimg-amd64.img",
     "storage_pool": "/storage/kvm/storage_pools",
     "vm_sudo_user_name": "ubuntu"
 }
