@@ -18,7 +18,7 @@ status:  ## List the VM and its associated resources on KVM
 	terraform refresh && terraform show
 
 ip:  ## Get the VM IP
-	@terraform show | grep -E -o '([0-9]{1,3}[\.]){3}[0-9]{1,3}' | grep -v '^127' | grep -v '0$$'
+	@terraform show | grep -E -o '([0-9]{1,3}[\.]){3}[0-9]{1,3}' | grep -v '^127' | grep -v '\.0$$'
 
 ssh:  ## ssh into the VM
-	@ssh {{ cookiecutter.vm_sudo_user_name }}@$(shell terraform show | grep -E -o '([0-9]{1,3}[\.]){3}[0-9]{1,3}' | grep -v '^127' | grep -v '0$$')
+	@ssh {{ cookiecutter.vm_sudo_user_name }}@$(shell terraform show | grep -E -o '([0-9]{1,3}[\.]){3}[0-9]{1,3}' | grep -v '^127' | grep -v '\.0$$')

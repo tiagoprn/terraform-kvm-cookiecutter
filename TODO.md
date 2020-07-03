@@ -1,6 +1,6 @@
 - Test with other volume sources (images):
 IMPORTANT: Put on the README.md file the web location to the images that will be tested below
-    * ubuntu18
+    * ubuntu18 (change this to be the default)
     * centos7 (check /storage/src/devops/shellscripts/kvm/download_centos7_cloud_image.sh)
     * arch linux (check /storage/src/devops/shellscripts/kvm/download_archlinux_cloud_image.sh)
     * a local image, downloaded to a local folder
