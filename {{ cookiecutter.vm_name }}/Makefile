@@ -18,4 +18,4 @@ status:  ## List the VM and its associated resources on KVM
 	terraform refresh && terraform show
 
 ip:  ## Get the VM IP
-	@terraform show | grep 192 | tr '"' ' ' | tr ',' ' ' | tr -s ' '
+	@terraform show | grep -E -o '([0-9]{1,3}[\.]){3}[0-9]{1,3}' | grep -v '^127' | grep -v '0$$'
