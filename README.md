@@ -11,7 +11,9 @@ specified and run:
 Terraform will then provision the vm on kvm through libvirt.
 
 After finished, run `make ssh` to ssh into the instance. You can see the other
-available commands typing `make`.
+available commands typing `make`. To interact with libvirt through `virsh`
+command, check [my cheatsheet
+here](https://github.com/tiagoprn/devops/blob/master/cheats/kvm.cheat).
 
 IMPORTANT: on my github, at `devops/shellscripts/kvm`, there is a pure
 shellscript implementation to another wrapper to kvm.
