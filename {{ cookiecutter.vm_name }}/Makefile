@@ -22,3 +22,6 @@ ip:  ## Get the VM IP
 
 ssh:  ## ssh into the VM
 	@ssh {{ cookiecutter.vm_sudo_user_name }}@$(shell terraform show | grep -E -o '([0-9]{1,3}[\.]){3}[0-9]{1,3}' | grep -v '^127' | grep -v '\.0$$')
+
+livebackup:  ## live backup of the VM
+	@sudo ./live-backup-vm.sh -d $(description)
