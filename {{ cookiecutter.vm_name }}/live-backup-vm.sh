@@ -4,7 +4,7 @@
 SYNTAX="./live-backup-vm.sh -d [DESCRIPTION]"
 HELP="./live-backup-vm.sh -d after-adding-package"
 
-while getopts n:b:r:c: option
+while getopts d: option
 do
   case "${option}"
   in
