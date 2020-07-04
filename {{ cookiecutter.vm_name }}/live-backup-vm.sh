@@ -18,7 +18,7 @@ if [[ -z $DESCRIPTION ]]; then
     exit 1
 fi
 
-VM_NAME={{ cookiecutter.vm_name }}-kvm
+VM_NAME={{ cookiecutter.vm_name }}
 STORAGE_POOL_ROOT={{ cookiecutter.storage_pool }}
 TIMESTAMP="$(date "+%Y%m%d.%H%M.%S")"
 BACKUPS_PATH={{ cookiecutter.backups_path }}

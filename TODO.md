@@ -1,7 +1,6 @@
-[DOING] Migrate my script that creates the live backup
-* /storage/src/devops/shellscripts/kvm/live-backup-vm.sh and restore_kvm_backup.py to here.
-* A simpler alternative: https://techsoftcenter.com/how-to-kvm-backup-and-restore-in-linux/
-
+[DOING] Testing the script that does livebackup and restore of the VM
+* If it does not work, there is a simpler alternative with the Vm turned off:
+  https://techsoftcenter.com/how-to-kvm-backup-and-restore-in-linux/
 
 [ ] Test the graphical environment with virt-manager and the ubuntu20 VM:
 * start the vm, ssh into it with `make ssh` and install the package ubuntu-desktop ;)

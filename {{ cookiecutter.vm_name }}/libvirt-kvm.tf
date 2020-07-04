@@ -37,7 +37,7 @@ resource "libvirt_cloudinit_disk" "commoninit" {
 
 # Create the machine
 resource "libvirt_domain" "domain-{{ cookiecutter.vm_name }}" {
-  name   = "{{ cookiecutter.vm_name }}-kvm"
+  name   = "{{ cookiecutter.vm_name }}"
   memory = {{ cookiecutter.memory }}
   vcpu   = {{ cookiecutter.vcpu }}
 
