@@ -14,7 +14,7 @@ done
 
 echo 'Parsing script parameters...'
 if [[ -z $DESCRIPTION ]]; then
-    printf "Missing -n parameter. Syntax: \n\n$SYNTAX\n\nE.g.: \n\n$HELP\n";
+    printf "Missing -d parameter. Syntax: \n\n$SYNTAX\n\nE.g.: \n\n$HELP\n";
     exit 1
 fi
 
