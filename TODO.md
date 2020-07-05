@@ -1,7 +1,3 @@
-[DOING] Testing the script that does livebackup and restore of the VM
-* If it does not work, there is a simpler alternative with the Vm turned off:
-  https://techsoftcenter.com/how-to-kvm-backup-and-restore-in-linux/
-
 [ ] Test the graphical environment with virt-manager and the ubuntu20 VM:
 * start the vm, ssh into it with `make ssh` and install the package ubuntu-desktop ;)
 * systemctl enable gdm/lightdm
