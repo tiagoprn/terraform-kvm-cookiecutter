@@ -16,7 +16,6 @@ import argparse
 import os
 import subprocess
 import sys
-import xml.etree.ElementTree as et
 from time import sleep
 
 cli_parser = argparse.ArgumentParser()
@@ -51,7 +50,6 @@ XML_FILE = args['xml_file']
 VM_NAME = args['vm_name']
 BACKUP_IMAGE_FILE = args['backup_image_file']
 IMAGE_FILE = args['destination_image_file']
-XML_RESTORATION_FILE = '/tmp/restoration.xml'
 
 if not os.path.exists(XML_FILE):
     print(
@@ -64,29 +62,6 @@ if not os.path.exists(BACKUP_IMAGE_FILE):
     sys.exit(1)
 
 
-def change_backup_xml_configuration_to_restore_vm():
-    tree = et.parse(XML_FILE)
-    root = tree.getroot()
-
-    for name in root.iter('name'):
-        name.text = VM_NAME
-
-    for disk in root.iter('disk'):
-        for child in disk:
-            if child.tag == 'source' and child.attrib['file'].endswith(
-                'qcow2'
-            ):
-                child.attrib['file'] = IMAGE_FILE
-                break
-
-    tree.write(XML_RESTORATION_FILE)
-
-    print(
-        'DONE. The new XML file you must use to restore your VM '
-        'is at {}.'.format(XML_RESTORATION_FILE)
-    )
-
-
 if __name__ == "__main__":
     print('Shutting down vm if it is active...')
     subprocess.run(['sudo', 'virsh', 'shutdown', VM_NAME])
@@ -95,20 +70,11 @@ if __name__ == "__main__":
     print('Removing disk for the existing vm...')
     if os.path.exists(IMAGE_FILE):
         os.unlink(IMAGE_FILE)
-    print('Changing backup kvm config to restoration...')
-    change_backup_xml_configuration_to_restore_vm()
     print('Copying the backup disk as the vm disk...')
     subprocess.run(['sudo', 'cp', '-farv', BACKUP_IMAGE_FILE, IMAGE_FILE])
     print('Restoring vm to the backup image...')
     subprocess.run(
-        [
-            'sudo',
-            'virsh',
-            '-c',
-            'qemu:///system',
-            'define',
-            XML_RESTORATION_FILE,
-        ]
+        ['sudo', 'virsh', '-c', 'qemu:///system', 'define', XML_FILE,]
     )
     print('Giving some time before starting the vm...')
     sleep(5)
