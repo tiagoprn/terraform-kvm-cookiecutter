@@ -49,7 +49,8 @@ hardware". Click the "Add Hardware" button at the lower left corner. Select
 "Storage", on "Device Type" choose "CDROM Device" and add the gparted ISO file.
 Click "Finish". Then, go to "Initialization Options", enable the "IDE CDROM"
 and move it to the top. Then, click "Apply". Then, click the "Play" icon to
-boot the VM and use gparted to resize the partition to its full size. After
+boot the VM, click the monitor icon (show graphical console), boot from gparted
+there and use it to resize the partition to its full size. After
 finished, poweroff from the gparted ISO, go to "Initialization Options" again,
 move the "IDE CDROM" below the virtual disk and disable it. You're done. Now
 you must powerup your VM on the CLI through virsh or on Virt Manager. :)
