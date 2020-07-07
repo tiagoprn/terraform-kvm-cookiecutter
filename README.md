@@ -15,8 +15,10 @@ available commands typing `make`. To interact with libvirt through `virsh`
 command, check [my cheatsheet
 here](https://github.com/tiagoprn/devops/blob/master/cheats/kvm.cheat).
 
-IMPORTANT: on my github, at `devops/shellscripts/kvm`, there is a pure
-shellscript implementation to another wrapper to kvm.
+IMPORTANT: [On my devops repo here at
+github](https://github.com/tiagoprn/devops/tree/master/shellscripts/kvm) there
+is a pure shellscript implementation to another wrapper to kvm. This
+cookiecutter was based on that.
 
 ### Growing the disk size:
 
