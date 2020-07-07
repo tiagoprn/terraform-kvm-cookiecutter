@@ -46,5 +46,7 @@ virsh blockcommit $VM_NAME vda --active --pivot --shallow --verbose
 RESTORE_1="To restore, run: "
 RESTORE_2="sudo python3 restore_kvm_backup.py -x '$BACKUPS_DIR/config.xml' -b '$BACKUPS_DIR/$VM_FILE' -n '$VM_NAME' -i '$VM_PATH'"
 
-echo $RESTORE_1 >> BACKUPS_DIR/README.md
-echo $RESTORE_2 >> BACKUPS_DIR/README.md
+echo $RESTORE_1 >> $BACKUPS_DIR/README.md
+echo $RESTORE_2 >> $BACKUPS_DIR/README.md
+
+echo "Backup finished. Instructions to restore it are at: $BACKUPS_DIR/README.md"
