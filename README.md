@@ -3,8 +3,12 @@
 This cookiecutter enables creation of kvm virtual machines on linux using
 terraform's [libvirt plugin](https://github.com/dmacvicar/terraform-provider-libvirt/).
 
-After running the cookiecutter, enter the folder with the `vm_name` you
-specified and run:
+Go to the directory you want to keep all terraform provisioning recipes (e.g.
+`/storage/kvm/terraform`), and from there run cookiecutter pointing to this
+repository (remotely or locally). E.g. locally: `cookiecutter
+/storage/src/terraform-kvm-cookiecutter`
+
+Then, enter the folder with the `vm_name` you specified and run:
 
 `make create`
 
@@ -67,9 +71,9 @@ manager if it is installed. If not, you can install it.
 
 ### EXAMPLE OF A DIRECTORY STRUCTURE TO KEEP KVM-RELATED FILES:
 
-- Terraform provisioning: /storage/temp/kvm
-- Images [^1] : /storage/kvm/local_images
-- Virtual Machines: /storage/kvm/storage_pools
-- Virtual Machine Backup: /storage/kvm/backups
+- Terraform provisioning: `/storage/kvm/terraform`
+- Images [^1]: `/storage/kvm/local_images`
+- Virtual Machines: `/storage/kvm/storage_pools`
+- Virtual Machine Backup: `/storage/kvm/backups`
 
 [^1] You can use remote ones, but if you prefer not to download each time you can store them locally.
