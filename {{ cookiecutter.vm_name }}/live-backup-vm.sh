@@ -43,5 +43,8 @@ tar cfjv $BACKUPS_ROOT/$BACKUP_NAME.tar.bz2 $BACKUPS_DIR
 echo "Redirecting disk operations to the original disk (VM_NAME=$VM_NAME)..."
 virsh blockcommit $VM_NAME vda --active --pivot --shallow --verbose
 
-echo "To restore, run: "
-echo "sudo python3 restore_kvm_backup.py -x '$BACKUPS_DIR/config.xml' -b '$BACKUPS_DIR/$VM_FILE' -n '$VM_NAME' -i '$VM_PATH'"
+RESTORE_1="To restore, run: "
+RESTORE_2="sudo python3 restore_kvm_backup.py -x '$BACKUPS_DIR/config.xml' -b '$BACKUPS_DIR/$VM_FILE' -n '$VM_NAME' -i '$VM_PATH'"
+
+echo $RESTORE_1 >> BACKUPS_DIR/README.md
+echo $RESTORE_2 >> BACKUPS_DIR/README.md

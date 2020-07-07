@@ -57,4 +57,16 @@ you must powerup your VM on the CLI through virsh or on Virt Manager. :)
 
 ### ONLINE IMAGES YOU CAN USE TO EXPERIMENT WITH THIS COOKIECUTTER:
 
-https://cloud-images.ubuntu.com/releases/focal/release/ubuntu-20.04-server-cloudimg-amd64-disk-kvm.img
+Ubuntu 20.04: https://cloud-images.ubuntu.com/releases/focal/release/ubuntu-20.04-server-cloudimg-amd64-disk-kvm.img
+Centos 8.2: http://cloud.centos.org/centos/8/x86_64/images/CentOS-8-GenericCloud-8.2.2004-20200611.2.x86_64.qcow2
+Centos 7: http://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud-2003.qcow2.xz
+Arch Linux (from openstack): https://linuximages.de/openstack/arch/arch-openstack-LATEST-image-bootstrap.qcow2
+
+### EXAMPLE OF A DIRECTORY STRUCTURE TO KEEP KVM-RELATED FILES:
+
+- Terraform provisioning: /storage/temp/kvm
+- Images *: /storage/kvm/local_images
+- Virtual Machines: /storage/kvm/storage_pools
+- Virtual Machine Backup: /storage/kvm/backups
+
+[*] you can use remote ones, but if you prefer not to download each time you can store them locally
