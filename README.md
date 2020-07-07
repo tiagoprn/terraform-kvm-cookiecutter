@@ -68,8 +68,8 @@ manager if it is installed. If not, you can install it.
 ### EXAMPLE OF A DIRECTORY STRUCTURE TO KEEP KVM-RELATED FILES:
 
 - Terraform provisioning: /storage/temp/kvm
-- Images *: /storage/kvm/local_images
+- Images [^1] : /storage/kvm/local_images
 - Virtual Machines: /storage/kvm/storage_pools
 - Virtual Machine Backup: /storage/kvm/backups
 
-[*] you can use remote ones, but if you prefer not to download each time you can store them locally
+[^1] You can use remote ones, but if you prefer not to download each time you can store them locally.
