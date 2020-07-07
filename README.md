@@ -20,19 +20,14 @@ shellscript implementation to another wrapper to kvm.
 
 ### Growing the disk size:
 
-By default, all images you download probably do not have much space left on
-disk so that you can install everything you need. So you will probably need to
-resize their qcow2 disk.
-
-To do that, we must first resize the qcow2 disk through qemu and then use
-
-on a new VM running on Virt-Manager to resize the disk. Below are the steps to
-do all that:
+Some images you download will probably not have much space left on
+disk so that you can install everything you need. Then, you may need to
+resize their qcow2 disk. Below are the steps to do that:
 
 - Open virt-manager. Search the vm you want to resize there, and stop it if it is
   running.
 
-- Open a terminal to resize the qcow2 disk of the image you want to resize:
+- Open a terminal to resize the qcow2 disk of the image you want:
 
 ```
 $ sudo su
@@ -50,15 +45,17 @@ hardware". Click the "Add Hardware" button at the lower left corner. Select
 Click "Finish". Then, go to "Initialization Options", enable the "IDE CDROM"
 and move it to the top. Then, click "Apply". Then, click the "Play" icon to
 boot the VM, click the monitor icon (show graphical console), boot from gparted
-there and use it to resize the partition to its full size. After
-finished, poweroff from the gparted ISO, go to "Initialization Options" again,
-move the "IDE CDROM" below the virtual disk and disable it. You're done. Now
-you must powerup your VM on the CLI through virsh or on Virt Manager. :)
+there and use it to resize the partition to its full size. After finished,
+poweroff from the gparted ISO, go to "Initialization Options" again, move the
+"IDE CDROM" below the virtual disk and disable it. You're done. Now you must
+powerup your VM on the CLI through virsh or on Virt Manager. :)
 
 ### ONLINE IMAGES YOU CAN USE TO EXPERIMENT WITH THIS COOKIECUTTER:
 
 [Ubuntu 20.04](https://cloud-images.ubuntu.com/releases/focal/release/ubuntu-20.04-server-cloudimg-amd64-disk-kvm.img)
+
 [Centos 8.2](http://cloud.centos.org/centos/8/x86_64/images/CentOS-8-GenericCloud-8.2.2004-20200611.2.x86_64.qcow2)
+
 [Arch Linux (from openstack)](https://linuximages.de/openstack/arch/arch-openstack-LATEST-image-bootstrap.qcow2)
 
 IMPORTANT: the image you use must have cloud-init installed so that it can be
