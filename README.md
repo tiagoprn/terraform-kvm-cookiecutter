@@ -60,6 +60,8 @@ powerup your VM on the CLI through virsh or on Virt Manager. :)
 
 [Ubuntu 20.04](https://cloud-images.ubuntu.com/releases/focal/release/ubuntu-20.04-server-cloudimg-amd64-disk-kvm.img)
 
+[Ubuntu 18.04](https://cloud-images.ubuntu.com/releases/bionic/release/ubuntu-18.04-server-cloudimg-amd64.img)
+
 [Centos 8.2](http://cloud.centos.org/centos/8/x86_64/images/CentOS-8-GenericCloud-8.2.2004-20200611.2.x86_64.qcow2)
 
 [Arch Linux (from openstack)](https://linuximages.de/openstack/arch/arch-openstack-LATEST-image-bootstrap.qcow2)
