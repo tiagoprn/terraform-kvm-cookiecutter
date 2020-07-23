@@ -12,7 +12,13 @@ create: generate-cloud-init-config  ## Create the VM and its associated resource
 	terraform init && terraform plan && terraform apply
 
 destroy:  ## Destroy the VM and its associated resources on KVM
+	echo "Destroying kvm resources through terraform..."
 	terraform destroy && rm terraform.tfstate*
+	echo "Deleting VM backups folder..."
+	sudo rm -fr {{ cookiecutter.backups_path }}/{{ cookiecutter.vm_name }}
+	echo "Deleting VM snapshots folder..."
+	sudo rm -fr {{ cookiecutter.backups_path }}/snapshots/{{ cookiecutter.vm_name }}
+	echo 'Finished. You will have to delete this directory ($(PROJECT_ROOT)) manually.'
 
 status:  ## List the VM and its associated resources on KVM
 	terraform refresh && terraform show
