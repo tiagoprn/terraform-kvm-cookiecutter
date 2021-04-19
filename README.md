@@ -1,5 +1,7 @@
 # Terraform KVM cookiecutter
 
+IMPORTANT: Instructions for installing Terraform with KVM support can be found [here](https://tiagopr.nl/posts/published/terraform-on-arch-linux/).
+
 This cookiecutter enables creation of kvm virtual machines on linux using
 terraform's [libvirt plugin](https://github.com/dmacvicar/terraform-provider-libvirt/).
 

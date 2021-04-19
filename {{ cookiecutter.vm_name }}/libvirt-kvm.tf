@@ -75,7 +75,13 @@ resource "libvirt_domain" "domain-{{ cookiecutter.vm_name }}" {
 }
 
 terraform {
-  required_version = ">= 0.12"
+  required_version = ">= 0.13"
+  required_providers {
+    libvirt = {
+      source  = "dmacvicar/libvirt"
+      version = "0.6.3"
+    }
+  }
 }
 
 # IPs: use wait_for_lease true or after creation use terraform refresh and terraform show for the ips of domain
