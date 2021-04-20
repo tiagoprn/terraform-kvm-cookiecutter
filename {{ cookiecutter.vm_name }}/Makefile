@@ -5,6 +5,11 @@ PROJECT_ROOT=$(shell pwd)
 help:  ## This help
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST) | sort
 
+network-create:  ## Creates the network that the VM will attach to
+	sudo virsh net-define kvm-nat-network.xml
+	sudo virsh net-start br1
+	sudo virsh net-autostart br1
+
 generate-cloud-init-config:  ## Generates the cloud init file
 	./generate_cloud_init_file.sh {{ cookiecutter.vm_name }}  # -$(shell date +%Y%m%d%H%M%S)
 

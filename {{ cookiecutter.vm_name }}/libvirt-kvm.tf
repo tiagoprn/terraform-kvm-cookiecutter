@@ -44,7 +44,7 @@ resource "libvirt_domain" "domain-{{ cookiecutter.vm_name }}" {
   cloudinit = libvirt_cloudinit_disk.commoninit.id
 
   network_interface {
-    network_name = "default"
+    network_name = "br1"
     wait_for_lease = true
   }
 

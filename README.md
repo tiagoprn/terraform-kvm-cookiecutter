@@ -12,7 +12,10 @@ repository (remotely or locally). E.g. locally: `cookiecutter
 
 Then, enter the folder with the `vm_name` you specified and run:
 
-`make create`
+```
+$ make network-create
+$ make create
+```
 
 Terraform will then provision the vm on kvm through libvirt.
 
