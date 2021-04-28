@@ -3,7 +3,7 @@
     "memory": 1024,
     "vcpu": 1,
     "volume_source": "https://cloud-images.ubuntu.com/releases/focal/release/ubuntu-20.04-server-cloudimg-amd64-disk-kvm.img",
-    "volume_size": 10G,
+    "volume_size": "10G",
     "storage_pool": "/storage/kvm/storage_pools",
     "vm_sudo_user_name": "ubuntu",
     "backups_path": "/storage/kvm/backups"
