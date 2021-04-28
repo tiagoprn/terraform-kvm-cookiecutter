@@ -31,6 +31,8 @@ cookiecutter was based on that.
 
 ### Growing the disk size:
 
+**IMPORTANT: That is now done automatically on the VM creation, but it will be kept here for future reference.**
+
 Some images you download will probably not have much space left on
 disk so that you can install everything you need. Then, you may need to
 resize their qcow2 disk. Below are the steps to do that:
