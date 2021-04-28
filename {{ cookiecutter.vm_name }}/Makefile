@@ -16,7 +16,6 @@ generate-cloud-init-config:  ## Generates the cloud init file
 create: generate-cloud-init-config  ## Create the VM and its associated resources on KVM
 	terraform init && terraform plan && terraform apply
 	@echo 'Resizing disk...'
-	sudo virsh start {{ cookiecutter.vm_name }}
 	sudo virsh blockresize {{ cookiecutter.vm_name }} {{ cookiecutter.storage_pool }}/{{ cookiecutter.vm_name }}/{{ cookiecutter.vm_name }}-qcow2 {{ cookiecutter.volume_size }}
 	sudo virsh shutdown {{ cookiecutter.vm_name }}
 
