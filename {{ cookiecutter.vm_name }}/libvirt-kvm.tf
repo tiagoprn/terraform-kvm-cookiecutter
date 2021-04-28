@@ -13,7 +13,6 @@ resource "libvirt_volume" "{{ cookiecutter.vm_name }}-qcow2" {
   name   = "{{ cookiecutter.vm_name }}-qcow2"
   pool   = libvirt_pool.{{ cookiecutter.vm_name }}.name
   source = "{{ cookiecutter.volume_source }}"
-  size = "{{ cookiecutter.volume_size }}"
   format = "qcow2"
 }
 
